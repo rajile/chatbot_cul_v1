@@ -23,8 +23,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copiar el resto del código
 COPY . .
 
-# Exponer el puerto que usa Railway
-EXPOSE 8080
+# Exponer el puerto por el que escuchará (Render inyecta PORT)
+EXPOSE 8000
 
-# Comando para ejecutar la aplicación
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
+# Comando para ejecutar la aplicación (Render asigna el puerto dinámicamente)
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
+
