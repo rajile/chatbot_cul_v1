@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUL AI Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="chat-container">
+        <header>
+            <div class="logo">
+                <img src="https://via.placeholder.com/40" alt="CUL Logo">
+                <h1>Asistente CUL</h1>
+            </div>
+            <div class="status">
+                <span class="status-dot"></span> Online
+            </div>
+        </header>
+
+        <main id="chat-messages">
+            <div class="message bot">
+                <div class="bubble">¡Hola! Soy el asistente virtual de la CUL. ¿En qué trámite académico te puedo ayudar hoy?</div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="input-area">
+                <input type="text" id="user-input" placeholder="Escribe tu mensaje aquí..." autocomplete="off">
+                <button id="send-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                    </svg>
+                </button>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
