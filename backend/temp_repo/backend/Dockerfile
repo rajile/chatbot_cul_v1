@@ -14,8 +14,6 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     libffi-dev \
     python3-dev \
-    ca-certificates \
-    pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
 # Copiar requirements e instalar dependencias

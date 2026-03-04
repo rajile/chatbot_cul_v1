@@ -34,21 +34,11 @@ class CULBot:
                 device_map=device_map,
             )
 
-        # Cargamos el adaptador LoRA
-        if adapter_path:
+        # Cargamos el adaptador LoRA si existe
+        if os.path.exists(adapter_path):
             from peft import PeftModel
-            if os.path.isdir(adapter_path):
-                print(f"🔄 Cargando adaptador LoRA desde carpeta local: {adapter_path}")
-                self.model = PeftModel.from_pretrained(self.model, adapter_path)
-                print("✅ Adaptador LoRA local cargado correctamente.")
-            else:
-                print(f"☁️ Intentando cargar adaptador LoRA desde Hugging Face Hub: {adapter_path}")
-                try:
-                    self.model = PeftModel.from_pretrained(self.model, adapter_path)
-                    print("✅ Adaptador LoRA de Hugging Face cargado correctamente.")
-                except Exception as e:
-                    print(f"⚠️ Error al cargar el adaptador desde Hugging Face: {e}")
-                    print("⚠️ El bot funcionará solo con el modelo base (TinyLlama).")
+            self.model = PeftModel.from_pretrained(self.model, adapter_path)
+            print("✅ Adaptador LoRA cargado correctamente.")
             
         self.pipe = pipeline("text-generation", model=self.model, tokenizer=self.tokenizer)
         self.system_prompt = "Eres el Asistente Virtual de Gestión Académica de la Corporación Universitaria Latinoamericana (CUL). Responde siempre en español, de forma formal, amable y concisa. Solo ayudas con trámites académicos."
