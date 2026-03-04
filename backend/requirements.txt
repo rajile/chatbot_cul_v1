@@ -1,7 +1,8 @@
 fastapi==0.115.0
 uvicorn==0.30.6
 sqlalchemy==2.0.35
-mysql-connector-python==9.0.0
+pymysql==1.1.0
+cryptography
 transformers==4.48.3
 torch==2.4.0
 peft==0.11.0
